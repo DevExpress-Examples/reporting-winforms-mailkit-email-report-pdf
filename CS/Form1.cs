@@ -5,22 +5,31 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace SendReportWithMailKit
-{
+namespace SendReportWithMailKit {
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
         public Form1()
         {
             InitializeComponent();
+            this.edtHost.EditValue = "localhost";
+            this.edtPort.EditValue = 25;
         }
-        private static MimeMessage CreateMimeMessage(MemoryStream stream)
+
+        private MimeMessage CreateMimeMessage(MemoryStream stream) {
+            if ((bool)this.radioGroup1.EditValue)
+                return CreateMimeMessageExportToMail(stream);
+            else
+                return CreateMimeMessageExportToPdf(stream);
+        }
+
+        private static MimeMessage CreateMimeMessageExportToPdf(MemoryStream stream)
         {
             // Instantiate a report. 
             // Email export options are already specified at design time.                
             XtraReport1 report = new XtraReport1();
 
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Someone", "someone@somewhere.com"));
+            message.From.Add(new MailboxAddress("Someone", "someone@test.com"));
             message.To.Add(new MailboxAddress(report.ExportOptions.Email.RecipientName,
                 report.ExportOptions.Email.RecipientAddress));
             message.Subject = report.ExportOptions.Email.Subject;
@@ -34,6 +43,25 @@ namespace SendReportWithMailKit
             return message;
         }
 
+        private static MimeMessage CreateMimeMessageExportToMail(MemoryStream stream) {
+            // Instantiate a report. 
+            // Email export options are already specified at design time.                
+            XtraReport1 report = new XtraReport1();
+
+            System.Net.Mail.MailMessage mMessage = report.ExportToMail("someone@test.com",
+                        report.ExportOptions.Email.RecipientAddress, report.ExportOptions.Email.RecipientName);
+            mMessage.Subject = report.ExportOptions.Email.Subject;
+
+            // Create a new attachment and add the PDF document.
+            report.ExportToPdf(stream);
+            stream.Seek(0, System.IO.SeekOrigin.Begin);
+            System.Net.Mail.Attachment attachedDoc = new System.Net.Mail.Attachment(stream, "TestReport.pdf", "application/pdf");
+            mMessage.Attachments.Add(attachedDoc);
+
+            var message = (MimeMessage)mMessage;
+            return message;
+        }
+
         private async void btnSend_Click(object sender, EventArgs e)
         {
             string SmtpHost = edtHost.EditValue.ToString();
@@ -44,7 +72,7 @@ namespace SendReportWithMailKit
             lblProgress.Text = await SendAsync(SmtpHost, SmtpPort, SmtpUserName, SmtpUserPassword);
         }
 
-        private static async Task<string> SendAsync(string smtpHost, int smtpPort, string userName, string password)
+        private async Task<string> SendAsync(string smtpHost, int smtpPort, string userName, string password)
         {
             string result = "OK";
             // Create a new memory stream and export the report in PDF.
@@ -55,8 +83,8 @@ namespace SendReportWithMailKit
                     using (var client = new SmtpClient())
                     {
                         try {
-                            client.Connect(smtpHost, smtpPort, SecureSocketOptions.StartTls);
-                            client.Authenticate(userName, password);
+                            client.Connect(smtpHost, smtpPort, SecureSocketOptions.Auto);
+                            //client.Authenticate(userName, password);
                             await client.SendAsync(mail);
                         }
                         catch (Exception ex) {
