@@ -26,7 +26,7 @@ The project code that sends a report as a PDF attachment includes the following 
 
 ## Documentation
 
-- [Email Reports](http://docs.devexpress.devx/XtraReports/17634/detailed-guide-to-devexpress-reporting/store-and-distribute-reports/export-reports/email-reports)
+- [Email Reports](http://docs.devexpress.com/XtraReports/17634/detailed-guide-to-devexpress-reporting/store-and-distribute-reports/export-reports/email-reports)
 
 ## More Examples
 
