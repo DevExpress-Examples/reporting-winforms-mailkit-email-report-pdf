@@ -317,8 +317,8 @@
             Me.ComponentStorage.AddRange(New System.ComponentModel.IComponent() {Me.SqlDataSource1})
             Me.DataMember = "Categories"
             Me.DataSource = Me.SqlDataSource1
-            Me.ExportOptions.Email.RecipientAddress = "test@test.com"
-            Me.ExportOptions.Email.RecipientName = "Test"
+            Me.ExportOptions.Email.RecipientAddress = "john.doe@test.com"
+            Me.ExportOptions.Email.RecipientName = "John Doe"
             Me.ExportOptions.Email.Subject = "Test"
             Me.Font = New System.Drawing.Font("Arial", 9.75!)
             Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.DetailCaption1, Me.DetailData1, Me.DetailData3_Odd, Me.PageInfo})

@@ -43,12 +43,14 @@ namespace SendReportWithMailKit
             this.edtPassword = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.lblProgress = new DevExpress.XtraEditors.LabelControl();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtHost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dxValidationProvider1
@@ -153,16 +155,31 @@ namespace SendReportWithMailKit
             this.lblProgress.Appearance.Options.UseTextOptions = true;
             this.lblProgress.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblProgress.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.lblProgress.Location = new System.Drawing.Point(25, 213);
+            this.lblProgress.Location = new System.Drawing.Point(25, 250);
             this.lblProgress.Name = "lblProgress";
             this.lblProgress.Size = new System.Drawing.Size(295, 0);
             this.lblProgress.TabIndex = 9;
+            // 
+            // radioGroup1
+            // 
+            this.radioGroup1.AutoSize = true;
+            this.radioGroup1.EditValue = true;
+            this.radioGroup1.Location = new System.Drawing.Point(87, 150);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Columns = 1;
+            this.radioGroup1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "HTML body and PDF attachment"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "PDF attachment")});
+            this.radioGroup1.Size = new System.Drawing.Size(183, 58);
+            this.radioGroup1.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 404);
+            this.Controls.Add(this.radioGroup1);
             this.Controls.Add(this.lblProgress);
             this.Controls.Add(this.edtPassword);
             this.Controls.Add(this.labelControl4);
@@ -182,6 +199,7 @@ namespace SendReportWithMailKit
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +218,7 @@ namespace SendReportWithMailKit
         private DevExpress.XtraEditors.TextEdit edtPassword;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl lblProgress;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
     }
 }
 

@@ -38,12 +38,14 @@
             Me.edtPassword = New DevExpress.XtraEditors.TextEdit()
             Me.labelControl4 = New DevExpress.XtraEditors.LabelControl()
             Me.lblProgress = New DevExpress.XtraEditors.LabelControl()
+            Me.radioGroup1 = New DevExpress.XtraEditors.RadioGroup()
             CType(Me.dxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.edtHost.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.edtPort.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.emptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.edtUsername.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.edtPassword.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.radioGroup1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'dxValidationProvider1
@@ -147,16 +149,29 @@
             Me.lblProgress.Appearance.Options.UseTextOptions = True
             Me.lblProgress.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
             Me.lblProgress.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
-            Me.lblProgress.Location = New System.Drawing.Point(25, 213)
+            Me.lblProgress.Location = New System.Drawing.Point(25, 250)
             Me.lblProgress.Name = "lblProgress"
             Me.lblProgress.Size = New System.Drawing.Size(295, 0)
             Me.lblProgress.TabIndex = 9
+            '
+            'radioGroup1
+            '
+            Me.radioGroup1.AutoSize = True
+            Me.radioGroup1.EditValue = True
+            Me.radioGroup1.Location = New System.Drawing.Point(87, 149)
+            Me.radioGroup1.Name = "radioGroup1"
+            Me.radioGroup1.Properties.Columns = 1
+            Me.radioGroup1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
+            Me.radioGroup1.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(True, "HTML body and PDF attachment"), New DevExpress.XtraEditors.Controls.RadioGroupItem(False, "PDF attachment")})
+            Me.radioGroup1.Size = New System.Drawing.Size(183, 58)
+            Me.radioGroup1.TabIndex = 11
             '
             'Form1
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(351, 402)
+            Me.ClientSize = New System.Drawing.Size(353, 404)
+            Me.Controls.Add(Me.radioGroup1)
             Me.Controls.Add(Me.lblProgress)
             Me.Controls.Add(Me.edtPassword)
             Me.Controls.Add(Me.labelControl4)
@@ -176,6 +191,7 @@
             CType(Me.emptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.edtUsername.Properties, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.edtPassword.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.radioGroup1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -194,6 +210,7 @@
         Private edtPassword As DevExpress.XtraEditors.TextEdit
         Private labelControl4 As DevExpress.XtraEditors.LabelControl
         Private lblProgress As DevExpress.XtraEditors.LabelControl
+        Private WithEvents radioGroup1 As DevExpress.XtraEditors.RadioGroup
     End Class
 End Namespace
 
