@@ -29,4 +29,6 @@ The following image shows an email in which the report is included both in the H
 
 ## More Examples
 
-- [Web Document Viewer - How to Email a Report](https://github.com/DevExpress-Examples/Reporting_web-document-viewer-how-to-send-a-report-via-email-from-the-client-side-t566760)
+- [Reporting for ASP.NET MVC - How to Email a Report from the Document Viewer](https://github.com/DevExpress-Examples/reporting-web-mvc-email-report)
+- [Reporting for Blazor - Email a Report from the Native Blazor Report Viewer](https://github.com/DevExpress-Examples/reporting-blazor-email-report)
+
